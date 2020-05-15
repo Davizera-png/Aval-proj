@@ -8,7 +8,7 @@ public class prog {
 		Scanner sc = new Scanner (System.in);
 		
 		double medticket, volume;
-		int score, compras, atrasos, scoreinad, scorepag;
+		int score, compras, atrasos, scoreinad, scorepag, total;
 		char pagamento;
 		score = 0;
 		scoreinad = 0;
@@ -84,9 +84,21 @@ public class prog {
 			 scorepag = 5;
 		 }
 		 
-		 System.out.printf("Score de inadimplência = "+ scoreinad+" pontos");
-		 System.out.printf("Score da forma de pagamento = "+ scorepag+" pontos");
+		 System.out.println("Score de inadimplência = "+ scoreinad+" pontos");
+		 System.out.println("Score da forma de pagamento = "+ scorepag+" pontos");
 		
+		 //classificação final
+		 
+		 total = score + scoreinad + scorepag;
+		 
+		 if (total > 0 && total <= 25) {
+			 System.out.println("Classificação final = CLIENTE BRONZE");
+		 } else if (total > 25 && total <= 75) {
+			 System.out.println("Classificação final = CLIENTE PRATA");
+		 } else  if (total > 75) {
+			 System.out.println("Classificação final = CLIENTE OURO");
+		 }
+		 
 		sc.close();
 	}
 
