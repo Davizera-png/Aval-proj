@@ -7,9 +7,10 @@ public class prog {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner (System.in);
 		
-		double medticket;
-		int compras, atrasos;
+		double medticket, volume;
+		int score, compras, atrasos;
 		char pagamento;
+		score = 0;
 		
 		//inicio do cabecalho
 		
@@ -37,8 +38,28 @@ public class prog {
 		pagamento = sc.next().charAt(0);
 		
 		//fim da leitura dos outros dados
+		 
+		//Começo do calculo de volume
+		volume = compras * medticket;
+		if (compras >= 0) {
+			if (volume <= 3000 && compras == 1) {
+				score = score + 20;
+			} else {
+				if (volume <= 3000 && compras > 1) {
+					score = score + 40;
+				} else {
+					if (volume > 3000) {
+						score = score + 60;
+					}
+				}
+			}
+			
+		}
 		
 		
+		System.out.printf("Score do volume de compras = "+ score+" pontos");
+		//fim do cálculo de volume
+		 
 		sc.close();
 	}
 
