@@ -8,10 +8,11 @@ public class prog {
 		Scanner sc = new Scanner (System.in);
 		
 		double medticket, volume;
-		int score, compras, atrasos, scoreinad;
+		int score, compras, atrasos, scoreinad, scorepag;
 		char pagamento;
 		score = 0;
 		scoreinad = 0;
+		scorepag = 0;
 		
 		//inicio do cabecalho
 		
@@ -77,8 +78,14 @@ public class prog {
 		 }
 		 }
 		 
-		 System.out.printf("Score de inadimplência= "+ scoreinad+" pontos");
-		
+		 if (pagamento == 'C' || pagamento == 'B') {
+			 scorepag = scorepag + 10;
+		 } else {
+			 scorepag = 5;
+		 }
+		 
+		 System.out.printf("Score de inadimplência = "+ scoreinad+" pontos");
+		 System.out.printf("Score da forma de pagamento = "+ scorepag+" pontos");
 		
 		sc.close();
 	}
