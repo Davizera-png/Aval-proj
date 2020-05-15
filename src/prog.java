@@ -8,15 +8,16 @@ public class prog {
 		Scanner sc = new Scanner (System.in);
 		
 		double medticket, volume;
-		int score, compras, atrasos;
+		int score, compras, atrasos, scoreinad;
 		char pagamento;
 		score = 0;
+		scoreinad = 0;
 		
 		//inicio do cabecalho
 		
 		System.out.println("SISTEMA DE PERFIL DO CLIENTE");
 		System.out.println("------------------------------------");
-		System.out.println("");
+		System.out.println();
 		
 		System.out.println("INFORME OS DADOS DO ÚLTIMO ANO");
 		//fim do cabecalho
@@ -24,8 +25,10 @@ public class prog {
 		//inicio da leitura do volume
 		System.out.printf("Quantas compras o cliente fez no último ano? ");
 		compras = sc.nextInt();
+		System.out.println();
 		System.out.printf("Qual o ticket médio? ");
 		medticket = sc.nextDouble();
+		System.out.println();
 		
 		
 		
@@ -36,7 +39,7 @@ public class prog {
 		
 		System.out.printf("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
 		pagamento = sc.next().charAt(0);
-		
+		System.out.println();
 		//fim da leitura dos outros dados
 		 
 		//Começo do calculo de volume
@@ -58,8 +61,25 @@ public class prog {
 		
 		
 		System.out.printf("Score do volume de compras = "+ score+" pontos");
+		System.out.println();
 		//fim do cálculo de volume
+		
+		//comeco de calculo de inadimplencia
+		 if (atrasos > 1 || compras == 0) {
+			 scoreinad = scoreinad + 0;
+		 } else {
+			 if (atrasos >= 1) {
+				 scoreinad = scoreinad + 15;
+			 } else {
+				 if (atrasos == 0) {
+					 scoreinad = scoreinad + 30;
+				 }
+		 }
+		 }
 		 
+		 System.out.printf("Score de inadimplência= "+ scoreinad+" pontos");
+		
+		
 		sc.close();
 	}
 
